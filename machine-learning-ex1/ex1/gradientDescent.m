@@ -16,8 +16,21 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCost) and gradient here.
     %
+    
+    % Hypothesis function,  result is predictions
+    hypothesis = X * theta;
 	
-    theta = theta - (alpha/m) * (X' * (X * theta - y)); % X' is 2 x 97 and result of hypothesis - y is 97 x 1
+    % Errors - Distance between hypothesis(h(x) and actual(y)
+    errors = hypothesis .- y;
+
+    % X_column1 = mx1 column vector
+    X_column1 = X(:, 1);
+
+    % X_column2 = mx1 column vector
+    X_column2 = X(:, 2);
+
+    theta(1, 1) = theta(1, 1) - (alpha * (1/m) * errors' * X_column1);
+    theta(2, 1) = theta(2, 1) - (alpha * (1/m) * errors' * X_column2);
 
     % ============================================================
 
