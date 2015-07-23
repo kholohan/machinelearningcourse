@@ -23,14 +23,13 @@ for iter = 1:num_iters
     % Errors - Distance between hypothesis(h(x) and actual(y)
     errors = hypothesis .- y;
 
-    % X_column1 = mx1 column vector
-    X_column1 = X(:, 1);
+    %disp(size(X' * errors));  This is a 2 x 1
+    %disp(size(theta));  This is a 2 x 1 also
+    %disp(size(X)); This is a 97 x 2
+    %disp(size(X')); This is a 2 x 97
 
-    % X_column2 = mx1 column vector
-    X_column2 = X(:, 2);
-
-    theta(1, 1) = theta(1, 1) - (alpha * (1/m) * errors' * X_column1);
-    theta(2, 1) = theta(2, 1) - (alpha * (1/m) * errors' * X_column2);
+    theta = theta - (alpha/m) * (X' * errors);
+    
 
     % ============================================================
 
