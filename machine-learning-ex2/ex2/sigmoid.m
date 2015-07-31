@@ -10,7 +10,8 @@ g = zeros(size(z));
 %               vector or scalar).
 
 
-
+%In place of e.^(-z),  can also use exp(x) 
+g = 1 ./ (1 + e.^(-z));
 
 
 % =============================================================
