@@ -13,20 +13,9 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
-    % Hypothesis function,  result is predictions
-    hypothesis = X * theta;
-	
-    % Errors - Distance between hypothesis(h(x) and actual(y)
-    errors = hypothesis .- y;
-   
-    % Squared error / Mean squared error
-    squaredErrors = (errors).^2;
 
-    % Sum of squared errors
-    sumOfSquaredErrors = sum(squaredErrors);
 
-    %J - or accuracy of prediction (closer to 0 the better)
-    J = 1 / (2 * m) * (sumOfSquaredErrors);
+
 
 % =========================================================================
 
