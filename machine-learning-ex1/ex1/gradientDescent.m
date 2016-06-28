@@ -17,16 +17,33 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
 
-
-
-
-
-
+    % Retrieve 1D vector of x values
+    x = X(:,2);
+    
+    % Compute hypothesis for given theta 0 and theta 1
+    hypothesis = theta(1) + (theta(2) * x);
+    
+    % Errors - Distance between hypothesis(h(x) and actual(y)
+    errors = hypothesis .- y;
+    
+    % Partial derivatives of both theta 0 and theta 1
+    thetaZeroPartialDerivative = sum(errors) / m;
+    thetaOnePartialDervivative = sum(errors  .* x) / m;
+    
+    % Solve for both cases 
+    thetaZero = theta(1) - alpha * thetaZeroPartialDerivative; 
+    thetaOne = theta(2) - alpha * thetaOnePartialDervivative;
+    
+    theta = [thetaZero; thetaOne];
+    
+    % disp(iter);
 
     % ============================================================
 
     % Save the cost J in every iteration    
     J_history(iter) = computeCost(X, y, theta);
+    % disp(J_history(iter));
+
 
 end
 
